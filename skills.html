@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills | Marco Lira Franco</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div>
+        <div class="name">Marco Lira Franco</div>
+        <div class="role">Skills</div>
+      </div>
+
+      <div class="header-right">
+        <a class="btn" href="https://github.com/marcofrancohalsey" target="_blank" rel="noopener">
+          <i data-lucide="github"></i>
+          GitHub
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/marco-lira-franco" target="_blank" rel="noopener">
+          <i data-lucide="linkedin"></i>
+          LinkedIn
+        </a>
+
+        <a class="btn primary copy-email" data-email="marco.lira.ds@gmail.com">
+          <i data-lucide="mail"></i>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a class="pill" href="index.html">Home</a>
+      <a class="pill" href="projects.html">Projects</a>
+      <a class="pill active" href="skills.html">Skills</a>
+      <a class="pill" href="resume.html">Resume</a>
+      <a class="pill" href="contact.html">Contact</a>
+    </div>
+
+    <section class="section">
+      <p class="kicker">Capabilities</p>
+      <h1>Technical capabilities</h1>
+    </section>
+
+    <section class="grid">
+
+      <div class="card half">
+        <h3>SQL analytics</h3>
+        <p class="meta">Querying, aggregation, and metrics built across time periods.</p>
+        <ul class="list">
+          <li>Joins and grouped aggregations for operational datasets.</li>
+          <li>Metrics computed across daily, weekly, and monthly periods.</li>
+          <li>Clean aggregated tables ready for analysis.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/weather_impact_on_chicago_taxi_trips" target="_blank" rel="noopener">
+            Chicago Taxi project
+          </a>
+        </div>
+      </div>
+
+      <div class="card half">
+        <h3>Statistical analysis</h3>
+        <p class="meta">Hypothesis testing and statistical inference.</p>
+        <ul class="list">
+          <li>Definition of null and alternative hypotheses.</li>
+          <li>Testing differences in means at defined significance levels.</li>
+          <li>Interpretation of statistical results for decision support.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/telecom-prepaid-plan-revenue-analysis" target="_blank" rel="noopener">
+            Telecom revenue project
+          </a>
+        </div>
+      </div>
+
+      <div class="card half">
+        <h3>Python data processing</h3>
+        <p class="meta">Cleaning, transformation, and behavioral aggregation.</p>
+        <ul class="list">
+          <li>Handling missing values and duplicate records.</li>
+          <li>Standardization of categorical variables and identifiers.</li>
+          <li>Computation of behavioral metrics such as basket size and reorder rate.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/instacart-purchase-behavior-analysis" target="_blank" rel="noopener">
+            Instacart project
+          </a>
+        </div>
+      </div>
+
+      <div class="card half">
+        <h3>Market and product analysis</h3>
+        <p class="meta">Trend analysis and platform lifecycle evaluation.</p>
+        <ul class="list">
+          <li>Identification of sales concentration across platforms.</li>
+          <li>Regional comparisons and segmentation of demand.</li>
+          <li>Market prioritization using historical performance data.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/video-game-sales-market-analysis" target="_blank" rel="noopener">
+            Video game market project
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="footer">© <span id="y"></span> Marco Lira Franco</div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const emailBtn = document.querySelector(".copy-email");
+
+    if (emailBtn){
+      emailBtn.addEventListener("click", () => {
+        const email = emailBtn.getAttribute("data-email");
+        navigator.clipboard.writeText(email).then(() => {
+          showNotification("Email copied to clipboard");
+        });
+      });
+
+      emailBtn.addEventListener("mouseenter", () => {
+        emailBtn.setAttribute("data-tooltip", emailBtn.getAttribute("data-email"));
+      });
+
+      emailBtn.addEventListener("mouseleave", () => {
+        emailBtn.removeAttribute("data-tooltip");
+      });
+    }
+
+    function showNotification(message) {
+      const notif = document.createElement("div");
+      notif.className = "copy-notification";
+      notif.textContent = message;
+
+      document.body.appendChild(notif);
+
+      setTimeout(() => notif.classList.add("show"), 10);
+
+      setTimeout(() => {
+        notif.classList.remove("show");
+        setTimeout(() => notif.remove(), 300);
+      }, 2000);
+    }
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

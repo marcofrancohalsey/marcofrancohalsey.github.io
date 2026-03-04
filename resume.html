@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Marco Lira Franco</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div>
+        <div class="name">Marco Lira Franco</div>
+        <div class="role">Resume</div>
+      </div>
+
+      <div class="header-right">
+        <a class="btn" href="https://github.com/marcofrancohalsey" target="_blank" rel="noopener">
+          <i data-lucide="github"></i>
+          GitHub
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/marco-lira-franco" target="_blank" rel="noopener">
+          <i data-lucide="linkedin"></i>
+          LinkedIn
+        </a>
+
+        <a class="btn primary copy-email" data-email="marco.lira.ds@gmail.com">
+          <i data-lucide="mail"></i>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a class="pill" href="index.html">Home</a>
+      <a class="pill" href="projects.html">Projects</a>
+      <a class="pill" href="skills.html">Skills</a>
+      <a class="pill active" href="resume.html">Resume</a>
+      <a class="pill" href="contact.html">Contact</a>
+    </div>
+
+      <section class="section">
+        <p class="kicker">Resume</p>
+        <h1>Curriculum vitae</h1>
+
+        <div class="cta">
+          <a class="btn primary" href="assets/pdf/Marco_Lira_CV.pdf" target="_blank" rel="noopener">
+            Open PDF
+          </a>
+        </div>
+      </section>
+
+    <section class="grid">
+
+      <div class="card">
+        <h3>Highlights</h3>
+        <ul class="list">
+          <li>Automated a large scale scientific data processing workflow that reduced operational time by 95 percent.</li>
+          <li>Built user level and revenue metrics from raw usage data using Python and SQL.</li>
+          <li>Applied hypothesis testing to evaluate differences between groups and support data driven decisions.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Education</h3>
+        <ul class="list">
+          <li>Data Science Bootcamp, TripleTen | Dec 2025 to Present</li>
+          <li>Master’s degree in Astrophysics</li>
+          <li>Bachelor’s degree in Applied Mathematics</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <div class="footer">© <span id="y"></span> Marco Lira Franco</div>
+
+    <script>
+      lucide.createIcons();
+
+      const emailBtn = document.querySelector(".copy-email");
+
+      if (emailBtn){
+        emailBtn.addEventListener("click", () => {
+          const email = emailBtn.getAttribute("data-email");
+          navigator.clipboard.writeText(email).then(() => {
+            showNotification("Email copied to clipboard");
+          });
+        });
+
+        emailBtn.addEventListener("mouseenter", () => {
+          emailBtn.setAttribute("data-tooltip", emailBtn.getAttribute("data-email"));
+        });
+
+        emailBtn.addEventListener("mouseleave", () => {
+          emailBtn.removeAttribute("data-tooltip");
+        });
+      }
+
+      function showNotification(message) {
+        const notif = document.createElement("div");
+        notif.className = "copy-notification";
+        notif.textContent = message;
+
+        document.body.appendChild(notif);
+
+        setTimeout(() => notif.classList.add("show"), 10);
+
+        setTimeout(() => {
+          notif.classList.remove("show");
+          setTimeout(() => notif.remove(), 300);
+        }, 2000);
+      }
+
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Marco Lira Franco</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div>
+        <div class="name">Marco Lira Franco</div>
+        <div class="role">Projects</div>
+      </div>
+
+      <div class="header-right">
+        <a class="btn" href="https://github.com/marcofrancohalsey" target="_blank" rel="noopener">
+          <i data-lucide="github"></i>
+          GitHub
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/marco-lira-franco" target="_blank" rel="noopener">
+          <i data-lucide="linkedin"></i>
+          LinkedIn
+        </a>
+
+        <a class="btn primary copy-email" 
+          data-email="marco.lira.ds@gmail.com">
+          <i data-lucide="mail"></i>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a class="pill" href="index.html">Home</a>
+      <a class="pill active" href="projects.html">Projects</a>
+      <a class="pill" href="skills.html">Skills</a>
+      <a class="pill" href="resume.html">Resume</a>
+      <a class="pill" href="contact.html">Contact</a>
+    </div>
+
+    <section class="section">
+      <p class="kicker">Projects</p>
+      <h1>Business decisions supported by data.</h1>
+      <p class="subtitle">
+        Structured analysis. Measured impact. Defensible conclusions.
+      </p>
+    </section>
+
+    <section class="grid">
+
+      <div class="card">
+        <h3>Video Game Market Analysis</h3>
+        <p class="meta">Python + EDA + Statistical analysis | Pandas · NumPy · Matplotlib · SciPy</p>
+
+        <p><span class="b">Business question:</span>
+        which platforms and genres should be prioritized for 2017 based on historical sales and platform lifecycle patterns.</p>
+
+        <p><span class="b">Method:</span>
+        cleaned and normalized sales data across platforms. Estimated average platform lifespan at 8 years using release and decline patterns. Evaluated regional revenue distribution and compared user scores across platforms through statistical testing.</p>
+
+        <p><span class="b">Result:</span>
+        sales are concentrated in a limited number of platforms. PS4 and XOne show sustained positive trends in the most recent period, supporting prioritization for 2017 planning.</p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/video-game-sales-market-analysis" target="_blank">View repository</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Telecom Plan Revenue Analysis</h3>
+        <p class="meta">Python + Metrics modeling + Hypothesis testing | Pandas · NumPy · SciPy · Matplotlib</p>
+
+        <p><span class="b">Business question:</span>
+        which prepaid plan generates higher average monthly revenue and how should advertising budget be allocated between Surf and Ultimate.</p>
+
+        <p><span class="b">Method:</span>
+        constructed monthly revenue metrics per user from raw usage records including calls, messages and mobile data. Applied plan pricing rules and overage charges. Compared average revenue between plans through statistical testing.</p>
+
+        <p><span class="b">Result:</span>
+        average monthly revenue per user is higher under the Ultimate plan than under the Surf plan. A statistical test at a significance level of 0.05 confirms that the difference in average revenue between the two plans is significant. This supports allocating a larger share of advertising budget to the Ultimate plan.</p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/telecom-prepaid-plan-revenue-analysis" target="_blank">View repository</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Weather Impact on Chicago Taxi Trips</h3>
+        <p class="meta">Python + SQL + EDA + hypothesis testing | Pandas · SciPy · Seaborn · Matplotlib</p>
+
+        <p><span class="b">Business question:</span>
+        how concentrated is taxi demand across neighborhoods and companies in Chicago, and does rain affect travel time between the Loop and O Hare International Airport.</p>
+
+        <p><span class="b">Method:</span>
+        standardized company and neighborhood names and computed demand concentration metrics including mean trip volume, median trip volume, and company market share. Trip durations between the Loop and O Hare were separated by weather conditions and compared through statistical testing at a significance level of 0.05.</p>
+
+        <p><span class="b">Result:</span>
+        taxi demand is highly concentrated. The ten largest companies account for seventy two percent of all recorded trips. Travel time between the Loop and O Hare is longer during rainy conditions and the difference in average duration is statistically significant at the 0.05 significance level.</p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/weather_impact_on_chicago_taxi_trips" target="_blank">View repository</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Instacart Purchase Behavior Analysis</h3>
+        <p class="meta">Python + EDA + behavioral aggregation | Pandas · NumPy · Matplotlib</p>
+
+        <p><span class="b">Business question:</span>
+        how frequently do customers reorder products and how concentrated is demand across the product catalog.</p>
+
+        <p><span class="b">Method:</span>
+        processed 478967 order records, removed duplicate entries, standardized categorical variables, and computed basket size, reorder frequency, and product level demand concentration metrics.</p>
+
+        <p><span class="b">Result:</span>
+        demand is strongly concentrated in a small subset of products. The average reorder rate across the catalog is thirty nine percent. Purchase activity also follows consistent weekly ordering cycles.</p>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/marcofrancohalsey/instacart-purchase-behavior-analysis" target="_blank">View repository</a>
+        </div>
+      </div>
+
+    </section>
+
+  <script>
+  lucide.createIcons();
+  </script>
+  <script>
+    lucide.createIcons();
+
+    const emailBtn = document.querySelector(".copy-email");
+
+    emailBtn.addEventListener("click", () => {
+      const email = emailBtn.getAttribute("data-email");
+
+      navigator.clipboard.writeText(email).then(() => {
+        showNotification("Email copied to clipboard");
+      });
+    });
+
+    emailBtn.addEventListener("mouseenter", () => {
+      emailBtn.setAttribute("data-tooltip", emailBtn.getAttribute("data-email"));
+    });
+
+    emailBtn.addEventListener("mouseleave", () => {
+      emailBtn.removeAttribute("data-tooltip");
+    });
+
+    function showNotification(message) {
+      const notif = document.createElement("div");
+      notif.className = "copy-notification";
+      notif.textContent = message;
+
+      document.body.appendChild(notif);
+
+      setTimeout(() => {
+        notif.classList.add("show");
+      }, 10);
+
+      setTimeout(() => {
+        notif.classList.remove("show");
+        setTimeout(() => notif.remove(), 300);
+      }, 2000);
+    }
+  </script>
+
+
+    <div class="footer">© <span id="y"></span> Marco Lira Franco</div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

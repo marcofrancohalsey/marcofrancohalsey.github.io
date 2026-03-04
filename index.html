@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marco Lira Franco | Data Scientist</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div>
+        <div class="name">Marco Lira Franco</div>
+        <div class="role">Data Scientist</div>
+      </div>
+
+      <div class="header-right">
+        <a class="btn" href="https://github.com/marcofrancohalsey" target="_blank" rel="noopener">
+          <i data-lucide="github"></i>
+          GitHub
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/marco-lira-franco" target="_blank" rel="noopener">
+          <i data-lucide="linkedin"></i>
+          LinkedIn
+        </a>
+
+        <a class="btn primary copy-email" 
+          data-email="marco.lira.ds@gmail.com">
+          <i data-lucide="mail"></i>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a class="pill active" href="index.html">Home</a>
+      <a class="pill" href="projects.html">Projects</a>
+      <a class="pill" href="skills.html">Skills</a>
+      <a class="pill" href="resume.html">Resume</a>
+      <a class="pill" href="contact.html">Contact</a>
+    </div>
+
+    <section class="section about-hero">
+
+      <div class="about-left">
+        <p class="kicker">About me</p>
+        <h1>Data Scientist</h1>
+
+        <p class="subtitle">
+          I hold a master’s degree in Astrophysics and a background in Applied Mathematics, where analysis relies on measurement, uncertainty, and verification. 
+          I am currently completing the Data Science Bootcamp at TripleTen to formalize and extend this quantitative background toward applied data analysis in operational and business contexts.
+        </p>
+
+        <p class="subtitle">
+          I work with Python and SQL to organize data, build metrics, and apply statistical analysis to evaluate performance and support decisions.
+          In the MEGASTAR project, I developed automation tools that reduced scientific data processing time by 95%.
+        </p>
+
+        <p class="subtitle">
+          I focus on clear reasoning, transparent assumptions, and reproducible workflows.
+          I value collaboration, clear communication, and solutions that remain maintainable over time.
+        </p>
+      </div>
+
+      <div class="about-right">
+        <img src="assets/images/profile.jpg" alt="Marco Lira Franco" class="profile-img">
+      </div>
+
+    </section>
+
+      <section class="grid">
+
+        <div class="card half">
+          <h3>Core strengths</h3>
+          <p class="meta">Key technical capabilities used in my projects.</p>
+          <ul class="list">
+            <li><span class="b">Automation:</span> Python workflows that reduced scientific data processing time by 95%.</li>
+            <li><span class="b">Statistical analysis:</span> hypothesis testing and inference to evaluate performance and support decisions.</li>
+            <li><span class="b">Metric design:</span> aggregation and performance metrics for behavioral and revenue analysis.</li>
+          </ul>
+        </div>
+
+        <div class="card half">
+          <h3>Selected projects</h3>
+          <p class="meta">Examples of applied data analysis.</p>
+          <ul class="list">
+            <li><span class="b">Video Game Market:</span> platform lifecycle and regional sales analysis to support 2017 market prioritization.</li>
+            <li><span class="b">Weather Impact on Chicago Taxi Trips:</span> demand concentration and weather impact on travel time between the Loop and O'Hare.</li>
+          </ul>
+          <div class="cta">
+            <a class="btn" href="projects.html">View all projects</a>
+          </div>
+        </div>
+
+      </section>
+
+    <div class="footer">© <span id="y"></span> Marco Lira Franco</div>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+  <script>
+  lucide.createIcons();
+  </script>
+  <script>
+    lucide.createIcons();
+
+    const emailBtn = document.querySelector(".copy-email");
+
+    emailBtn.addEventListener("click", () => {
+      const email = emailBtn.getAttribute("data-email");
+
+      navigator.clipboard.writeText(email).then(() => {
+        showNotification("Email copied to clipboard");
+      });
+    });
+
+    emailBtn.addEventListener("mouseenter", () => {
+      emailBtn.setAttribute("data-tooltip", emailBtn.getAttribute("data-email"));
+    });
+
+    emailBtn.addEventListener("mouseleave", () => {
+      emailBtn.removeAttribute("data-tooltip");
+    });
+
+    function showNotification(message) {
+      const notif = document.createElement("div");
+      notif.className = "copy-notification";
+      notif.textContent = message;
+
+      document.body.appendChild(notif);
+
+      setTimeout(() => {
+        notif.classList.add("show");
+      }, 10);
+
+      setTimeout(() => {
+        notif.classList.remove("show");
+        setTimeout(() => notif.remove(), 300);
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
